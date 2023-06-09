@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Barbearia dos Amigos</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Barbearia dos Amigos</h1>
+        </div>
+        <div class="col text-center">
+          <a href="/agendamento" class="btn btn-primary">Agendamento</a>
+          <a href="/contato" class="btn btn-secondary">Contato</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="welcome-section">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h2>Bem-vindo à Barbearia dos Amigos</h2>
+          <p>Temos 3 cadeiras disponíveis para agendamento.</p>
+          <p>Estamos localizados no Jockey Club em Campos dos Goytacazes, Rio de Janeiro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="barbershop-section" class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3>Conheça nossos cortes de cabelo masculino</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col">
+                    <img src="img/corte1.jpg" class="d-block w-100" alt="Corte de cabelo 1">
+                  </div>
+                  <div class="col">
+                    <img src="img/corte2.jpg" class="d-block w-100" alt="Corte de cabelo 2">
+                  </div>
+                  <div class="col">
+                    <img src="img/corte3.jpg" class="d-block w-100" alt="Corte de cabelo 3">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Próximo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <p>&copy; 2002 - Barbearia dos Amigos. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>

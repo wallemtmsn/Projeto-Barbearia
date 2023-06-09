@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="jquery-ui.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+
+  <title>Barbearia dos Amigos - Agendamento</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary" onclick="history.back()">Voltar</button>
+          <h1>Barbearia dos Amigos</h1>
+        </div>
+        <div class="col text-center">
+          <a href="/agendamento" class="btn btn-primary">Agendamento</a>
+          <a href="/contato" class="btn btn-secondary">Contato</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="booking-section">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h2>Agendamento</h2>
+          <p>Preencha o formulário abaixo para agendar um horário na Barbearia dos Amigos.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form id="booking-form">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="name" placeholder="Digite seu nome" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Telefone</label>
+              <input type="tel" class="form-control" id="phone" placeholder="Digite seu telefone" required>
+            </div>
+            <div class="mb-3">
+              <label for="date" class="form-label">Data</label>
+              <input type="text" class="form-control" id="date" required>
+            </div>
+            <div class="mb-3">
+              <label for="time" class="form-label">Horário</label>
+              <select class="form-select" id="time" required>
+                <option value="">Selecione o horário</option>
+                <option value="08:00">08:00 AM</option>
+                <option value="08:40">08:40 AM</option>
+                <option value="09:20">09:20 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="10:40">10:40 AM</option>
+                <option value="11:20">11:20 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="12:40">12:40 PM</option>
+                <option value="13:20">13:20 PM</option>
+                <option value="14:00">14:00 PM</option>
+                <option value="14:40">14:40 PM</option>
+                <option value="15:20">15:20 PM</option>
+                <option value="16:00">16:00 PM</option>
+                <option value="16:40">16:40 PM</option>
+                <option value="17:20">17:20 PM</option>
+                <option value="18:00">18:00 PM</option>
+                <option value="18:40">18:40 PM</option>
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label for="haircut" class="form-label">Corte</label>
+              <select class="form-select" id="haircut" required>
+                <option value="">Selecione o tipo de corte</option>
+                <option value="Tesoura">Tesoura</option>
+                <option value="Máquina">Máquina</option>
+                <option value="Tesoura & Máquina">Tesoura & Máquina</option>
+              </select>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Agendar</button>
+            </div>
+          </form>
+          <div class="alert alert-danger mt-3 d-none" id="error-message" role="alert">
+            Por favor, preencha todos os campos obrigatórios.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <p>&copy; 2002 - Barbearia dos Amigos. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="bootstrap.bundle.min.js"></script>
+  <script>
+    const bookingForm = document.getElementById('booking-form');
+    const errorMessage = document.getElementById('error-message');
+
+    $(document).ready(function() {
+      $('#date').datepicker({
+        dateFormat: 'dd/mm/yy',
+        minDate: 0
+      });
+    });
+
+    bookingForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      if (bookingForm.checkValidity()) {
+        const nome = document.getElementById('name').value;
+        const telefone = document.getElementById('phone').value;
+        const data = document.getElementById('date').value;
+        const horario = document.getElementById('time').value;
+        const corte = document.getElementById('haircut').value;
+
+        // Enviar os dados para o servidor
+        $.post('/agendamento', {
+          nome: nome,
+          telefone: telefone,
+          data: data,
+          horario: horario,
+          corte: corte
+        }, function(data, status) {
+          console.log(data);
+          alert('Agendamento realizado com sucesso!');
+        });
+      } else {
+        errorMessage.classList.remove('d-none');
+      }
+    });
+  </script>
+</body>
+</html>

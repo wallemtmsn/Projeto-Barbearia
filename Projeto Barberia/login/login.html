@@ -1,0 +1,55 @@
+<!-- Crie um código html para gerar uma tela de login com nome de usuário e senha -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Barbearia dos Amigos - Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Barbearia dos Amigos</h1>
+        </div>
+        <div class="col text-center">
+          <a href="/agendamento" class="btn btn-primary">Agendamento</a>
+          <a href="/contato" class="btn btn-secondary">Contato</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="login-section">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h2>ENTRAR</h2>
+          <p>Entre com seu nome de usuário e senha para acessar o sistema.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form id="login-form">
+            <div class="mb-3">
+              <label for="username" class="form-label">Nome de usuário</label>
+              <input type="text" class="form-control" id="username" placeholder="Digite seu nome de usuário" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</html>
+
